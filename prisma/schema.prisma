@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum OrderStatus {
+  pending
+  paid
+  delivered
+  failed
+}
+
+enum PaymentStatus {
+  pending
+  paid
+  failed
+}
+
+enum DeliveryStatus {
+  pending
+  delivered
+  failed
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  customerName  String
+  customerEmail String
+  productType   String
+  productId     String
+  amount        Decimal
+  currency      String      @default("USD")
+  status        OrderStatus @default(pending)
+  metadata      Json?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  payments        Payment[]
+  ebookDeliveries EbookDelivery[]
+
+  @@index([customerEmail])
+  @@index([productId])
+  @@index([status])
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  orderId     String
+  provider    String
+  providerRef String
+  amount      Decimal
+  currency    String        @default("USD")
+  status      PaymentStatus @default(pending)
+  rawPayload  Json?
+  metadata    Json?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerRef])
+  @@index([orderId])
+  @@index([status])
+}
+
+model EbookDelivery {
+  id                String         @id @default(cuid())
+  orderId            String
+  email              String
+  downloadTokenHash  String         @unique
+  expiresAt          DateTime
+  status             DeliveryStatus @default(pending)
+  deliveredAt        DateTime?
+  metadata           Json?
+  createdAt          DateTime       @default(now())
+  updatedAt          DateTime       @updatedAt
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([email])
+  @@index([status])
+  @@index([expiresAt])
+}

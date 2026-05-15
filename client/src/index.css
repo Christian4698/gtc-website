@@ -1,0 +1,424 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* GTC Premium Tech Color Palette - Electric Blue Edition */
+  --gtc-deep-blue: #0B1F3A;      /* Deep blue principal */
+  --gtc-electric-blue: #1E90FF;  /* Electric blue accent */
+  --gtc-white: #FFFFFF;          /* Blanc pur */
+  --gtc-light-gray: #F5F7FA;     /* Gris clair */
+  --gtc-dark-gray: #1A1F2E;      /* Gris foncé */
+  --gtc-accent: #00D4FF;         /* Cyan accent */
+  --gtc-gray-text: #64748B;      /* Gris texte */
+
+  --primary: #1E90FF;
+  --primary-foreground: #FFFFFF;
+  --sidebar-primary: #0B1F3A;
+  --sidebar-primary-foreground: #FFFFFF;
+  --chart-1: #1E90FF;
+  --chart-2: #00D4FF;
+  --chart-3: #0B1F3A;
+  --chart-4: #1A1F2E;
+  --chart-5: #0D2B47;
+  --radius: 0.5rem;
+  --background: #FFFFFF;
+  --foreground: #0B1F3A;
+  --card: #F5F7FA;
+  --card-foreground: #0B1F3A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0B1F3A;
+  --secondary: #00D4FF;
+  --secondary-foreground: #0B1F3A;
+  --muted: #E0E7FF;
+  --muted-foreground: #64748B;
+  --accent: #1E90FF;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #F5F7FA;
+  --ring: #1E90FF;
+  --sidebar: #0B1F3A;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-accent: #1E90FF;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #1A1F2E;
+  --sidebar-ring: #1E90FF;
+}
+
+.dark {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.85 0.005 65);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.85 0.005 65);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.85 0.005 65);
+  --secondary: oklch(0.24 0.006 286.033);
+  --secondary-foreground: oklch(0.7 0.005 65);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground:  oklch(0.92 0.005 65);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.85 0.005 65);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.488 0.243 264.376);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+/* GTC Custom Styles - Minimalisme Géométrique Futuriste */
+
+/* Hero Section */
+.gtc-hero {
+  @apply relative min-h-screen flex items-center justify-between overflow-hidden;
+  background: linear-gradient(135deg, #0B1F3A 0%, #1A1F2E 50%, #0B1F3A 100%);
+}
+
+.gtc-hero-content {
+  @apply flex-1 pr-8 z-10;
+}
+
+.gtc-hero-title {
+  @apply text-5xl md:text-6xl font-bold text-white leading-tight mb-6;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.gtc-hero-copy {
+  @apply max-w-xl;
+}
+
+.gtc-hero-line {
+  @apply mt-0;
+  box-shadow: 0 0 22px rgba(0, 212, 255, 0.34);
+}
+
+.gtc-hero-punchline {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.35rem, 4.6vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.gtc-hero-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.gtc-hero-gradient-text {
+  @apply bg-gradient-to-r from-[#1E90FF] via-[#00D4FF] to-[#7DD3FC] bg-clip-text text-transparent;
+  margin-top: 0.08em;
+  filter: drop-shadow(0 0 14px rgba(0, 212, 255, 0.18));
+}
+
+@media (max-width: 480px) {
+  .gtc-hero-punchline {
+    font-size: clamp(2rem, 10.5vw, 2.65rem);
+  }
+}
+
+.gtc-hero-subtitle {
+  @apply text-lg md:text-xl text-[#D6EAFE] leading-relaxed;
+  font-weight: 400;
+}
+
+.gtc-hero-primary-cta {
+  @apply px-9 py-4 shadow-xl;
+  box-shadow: 0 18px 45px rgba(30, 144, 255, 0.34);
+}
+
+.gtc-hero-secondary-cta {
+  @apply px-9 py-4 border-white/45 text-white hover:border-[#00D4FF] hover:bg-white/10;
+  backdrop-filter: blur(10px);
+}
+
+.gtc-hero-visual {
+  animation: heroVisualIn 0.9s ease-out both;
+}
+
+.gtc-hero-media {
+  @apply rounded-xl;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42), 0 0 70px rgba(30, 144, 255, 0.16);
+}
+
+.gtc-hero-media-video {
+  animation: heroSubtleZoom 9s ease-in-out infinite alternate;
+}
+
+.gtc-hero-media-overlay {
+  @apply absolute inset-0 pointer-events-none;
+  background:
+    linear-gradient(135deg, rgba(11, 31, 58, 0.38), rgba(30, 144, 255, 0.12)),
+    radial-gradient(circle at 78% 18%, rgba(0, 212, 255, 0.18), transparent 36%);
+}
+
+.gtc-hero-image {
+  @apply flex-1 relative h-full;
+}
+
+/* Geometric Line Separator */
+.gtc-line-separator {
+  @apply h-1 bg-gradient-to-r from-[#1E90FF] to-[#00D4FF] my-12;
+  width: 60px;
+}
+
+/* Section with Alternating Background */
+.gtc-section-light {
+  @apply bg-white py-16 md:py-24;
+}
+
+.gtc-section-dark {
+  @apply bg-[#0B1F3A] py-16 md:py-24 text-white;
+}
+
+.gtc-section-gray {
+  @apply bg-[#F5F7FA] py-16 md:py-24;
+}
+
+/* Section Title */
+.gtc-section-title {
+  @apply text-4xl md:text-5xl font-bold text-[#0B1F3A] mb-4;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.gtc-section-dark .gtc-section-title {
+  @apply text-white;
+}
+
+.gtc-section-subtitle {
+  @apply text-lg text-[#64748B] mb-12 max-w-2xl;
+}
+
+.gtc-section-dark .gtc-section-subtitle {
+  @apply text-[#00D4FF];
+}
+
+/* Service Card */
+.gtc-service-card {
+  @apply bg-white p-8 rounded-lg border-l-4 border-[#1E90FF] hover:shadow-xl transition-all duration-300 cursor-pointer;
+  border-top: 1px solid #E2E8F0;
+}
+
+.gtc-service-card:hover {
+  @apply shadow-2xl transform -translate-y-2;
+  border-left-color: #00D4FF;
+}
+
+.gtc-service-icon {
+  @apply w-16 h-16 mb-4;
+}
+
+.gtc-service-title {
+  @apply text-2xl font-bold text-[#0B1F3A] mb-3;
+}
+
+.gtc-service-description {
+  @apply text-[#64748B] leading-relaxed;
+}
+
+/* CTA Button */
+.gtc-btn-primary {
+  @apply inline-block px-8 py-3 bg-gradient-to-r from-[#1E90FF] to-[#00D4FF] text-white font-semibold rounded transition-all duration-300;
+}
+
+.gtc-btn-primary:hover {
+  @apply shadow-lg transform scale-105;
+  box-shadow: 0 10px 30px rgba(30, 144, 255, 0.4);
+}
+
+.gtc-btn-secondary {
+  @apply inline-block px-8 py-3 border-2 border-[#1E90FF] text-[#1E90FF] font-semibold rounded transition-all duration-300 hover:bg-[#1E90FF] hover:text-white;
+}
+
+.bundle-input {
+  @apply w-full rounded border border-slate-300 bg-white px-3 py-2.5 text-sm font-normal text-[#0B1F3A] outline-none transition focus:border-[#1E90FF] focus:ring-4 focus:ring-[#1E90FF]/15;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gtc-animate-in {
+  animation: slideUpFade 0.75s ease-out;
+}
+
+@keyframes heroVisualIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroSubtleZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.035);
+  }
+}
+
+/* ============ NOTIFICATIONS ANIMATIONS ============ */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

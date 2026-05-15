@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="General Tech Consult - Data Speaks. Experts Decide." />
+    <meta name="description" content="Transformez vos données en décisions stratégiques. GTC vous accompagne en data analytics, automation Excel, développement logiciel sur mesure et formation professionnelle." />
+    <meta name="keywords" content="data analytics RDC, formation Excel Kinshasa, automation Excel VBA, développement logiciel, Google Sheets, consultance tech, General Tech Consult, GTC, data analyse Congo" />
+    <meta name="author" content="General Tech Consult" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://gtcconsult-kbikhbrx.manus.space/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gtcconsult-kbikhbrx.manus.space/" />
+    <meta property="og:title" content="General Tech Consult - Data Speaks. Experts Decide." />
+    <meta property="og:description" content="Solutions data, automation Excel, développement logiciel et formation professionnelle. Transformez vos données en décisions." />
+    <meta property="og:image" content="/assets/images/logo_gtc.PNG" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="General Tech Consult" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="General Tech Consult - Data Speaks. Experts Decide." />
+    <meta name="twitter:description" content="Data analytics, automation Excel, développement logiciel et formations. Réponse en 24h." />
+    <meta name="twitter:image" content="/assets/images/logo_gtc.PNG" />
+
+    <!-- Theme color for mobile browser bar -->
+    <meta name="theme-color" content="#0B1F3A" />
+
+    <title>General Tech Consult - Data Speaks. Experts Decide.</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- =========================================================
+         ANALYTICS - GTC TRACKING
+         To activate: replace placeholder IDs below with real ones.
+         - GA4: replace 'G-XXXXXXXXXX' with your GA4 Measurement ID
+         - Meta Pixel: replace 'YOUR_PIXEL_ID' with your Meta Pixel ID
+         If IDs are left as placeholders, the scripts won't load.
+    ========================================================= -->
+    <script>
+      // GTC Analytics Configuration
+      window.GTC_ANALYTICS = {
+        GA4_MEASUREMENT_ID: 'G-E8BJX3SBHF',  // GTC Google Analytics 4
+        META_PIXEL_ID: 'YOUR_PIXEL_ID',      // <-- Remplacer par votre Meta Pixel ID
+      };
+    </script>
+
+    <!-- Google Analytics 4 (loads only when ID is configured) -->
+    <script>
+      (function() {
+        var id = window.GTC_ANALYTICS.GA4_MEASUREMENT_ID;
+        if (!id || id === 'G-XXXXXXXXXX') return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        // send_page_view: false because the React app fires it manually on route changes (SPA)
+        window.gtag('config', id, { send_page_view: false });
+      })();
+    </script>
+
+    <!-- Meta Pixel (loads only when ID is configured) -->
+    <script>
+      (function() {
+        var id = window.GTC_ANALYTICS.META_PIXEL_ID;
+        if (!id || id === 'YOUR_PIXEL_ID') return;
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', id);
+        window.fbq('track', 'PageView');
+      })();
+    </script>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "General Tech Consult",
+      "alternateName": "GTC",
+      "slogan": "Data Speaks. Experts Decide.",
+      "url": "https://gtcconsult-kbikhbrx.manus.space/",
+      "logo": "/assets/images/logo_gtc.PNG",
+      "description": "Société de consulting technologique spécialisée en data analytics, automation Excel, développement logiciel et formation professionnelle.",
+      "telephone": "+243829664720",
+      "email": "teamgtconsult1@gmail.com",
+      "sameAs": [
+        "https://www.instagram.com/general_tech_consult",
+        "https://www.facebook.com/profile.php?id=100094265310553",
+        "https://www.tiktok.com/@general_tech_consult",
+        "https://www.youtube.com/@GENERALTECHCONSULT",
+        "https://x.com/generaltechc",
+        "https://t.me/GTC_Forum"
+      ]
+    }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p>Ce site requiert JavaScript pour fonctionner. Veuillez l'activer dans votre navigateur.</p>
+      <!-- Meta Pixel noscript fallback -->
+      <img height="1" width="1" style="display:none" alt="" />
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+    <script
+      defer
+      src="%VITE_ANALYTICS_ENDPOINT%/umami"
+      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+  </body>
+
+</html>

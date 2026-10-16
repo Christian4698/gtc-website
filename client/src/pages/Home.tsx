@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import Layout from '@/components/Layout';
 import SEOHelmet from '@/components/SEOHelmet';
 import { BarChart3, Zap, Code, TrendingUp, ArrowRight } from 'lucide-react';
@@ -5,6 +6,10 @@ import { Link } from 'wouter';
 import { useFormModal } from '@/contexts/FormModalContext';
 import { getWhatsAppLink, trackWhatsAppClick, trackEvent } from '@/lib/conversion';
 import AnimatedBackground from '@/components/AnimatedBackground';
+
+const GtcMotion = lazy(() =>
+  import('@/components/gtc-motion/MotionExperience').then((module) => ({ default: module.MotionExperience })),
+);
 
 export default function Home() {
   const { openForm } = useFormModal();
@@ -113,57 +118,17 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* AVANT (Pain Points) */}
-            <div className="relative bg-gradient-to-br from-red-50 to-orange-50 border border-red-100 rounded-2xl p-8">
-              <div className="absolute -top-4 left-8 px-4 py-1 bg-red-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">
-                Avant GTC
-              </div>
-              <h3 className="text-2xl font-bold text-red-900 mb-6 mt-2">
-                😩 Vos défis actuels
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  'Des heures perdues sur des tâches Excel manuelles répétitives',
-                  'Des données dispersées qui ne disent rien d\'utile',
-                  'Des décisions basées sur l\'intuition, pas sur des chiffres',
-                  'Des rapports lents, fastidieux et souvent erronés',
-                  'Des équipes qui maîtrisent mal Excel ou Sheets',
-                  'Pas de système connecté entre Excel et le mobile',
-                ].map((pain, i) => (
-                  <li key={i} className="flex gap-3 items-start">
-                    <span className="flex-shrink-0 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✕</span>
-                    <span className="text-red-900/80">{pain}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* APRÈS (Transformation) */}
-            <div className="relative bg-gradient-to-br from-[#1E90FF]/5 to-[#00D4FF]/10 border border-[#1E90FF]/20 rounded-2xl p-8">
-              <div className="absolute -top-4 left-8 px-4 py-1 bg-gradient-to-r from-[#1E90FF] to-[#00D4FF] text-white text-xs font-bold rounded-full uppercase tracking-wider">
-                Avec GTC
-              </div>
-              <h3 className="text-2xl font-bold text-[#0B1F3A] mb-6 mt-2">
-                🚀 Votre nouvelle réalité
-              </h3>
-              <ul className="space-y-4">
-                {[
-                  'Automatisation complète : gagnez 10h+ par semaine',
-                  'Tableaux de bord clairs avec insights en temps réel',
-                  'Décisions stratégiques basées sur la data',
-                  'Rapports instantanés, fiables, professionnels',
-                  'Équipes formées et autonomes sur Excel & Sheets',
-                  'Systèmes Excel synchronisés avec applications mobiles',
-                ].map((win, i) => (
-                  <li key={i} className="flex gap-3 items-start">
-                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-br from-[#1E90FF] to-[#00D4FF] text-white rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
-                    <span className="text-[#0B1F3A]">{win}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          {/* De l’idée à l’impact : animation interactive en huit étapes (remplace la grille Avant GTC / Avec GTC) */}
+          <Suspense
+            fallback={
+              <div
+                aria-hidden="true"
+                className="mx-auto aspect-[3/4] w-full max-w-[560px] rounded-[18px] bg-[#F7F9FC] min-[721px]:aspect-video min-[721px]:max-w-[1120px]"
+              />
+            }
+          >
+            <GtcMotion variant="compact" />
+          </Suspense>
 
           {/* CTA central */}
           <div className="text-center mt-12">

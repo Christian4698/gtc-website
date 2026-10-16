@@ -1,0 +1,71 @@
+/* GTC — « De l'idée à l'impact » (home page motion design).
+   Every rule is scoped to .gm: no global variable, element or body rule leaks into the site.
+   Poppins and Inter are already loaded by the site (client/src/index.html). */
+
+.gm {
+  --gm-bg: #f7f9fc;
+  --gm-ink: #0b1f3a;
+  --gm-gtc: #00307d;
+  --gm-sky: #38b6ff;
+  --gm-muted: #5e7290;
+  --gm-rule: #dfe7f0;
+  --gm-surface: #ffffff;
+  --gm-display: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+  --gm-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--gm-ink);
+  font-family: var(--gm-body);
+  -webkit-font-smoothing: antialiased;
+}
+.gm .f-display { font-family: var(--gm-display); }
+.gm .f-body { font-family: var(--gm-body); }
+.gm-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.gm-stage { position: relative; container-type: inline-size; width: 100%; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: var(--gm-bg); box-shadow: 0 0 0 1px var(--gm-rule); }
+.gm[data-layout='mobile'] .gm-stage { aspect-ratio: 3 / 4; max-width: 560px; margin: 0 auto; }
+.gm[data-variant='compact'] .gm-stage { max-width: 1120px; margin-left: auto; margin-right: auto; }
+.gm .stage-svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+.gm-copy { position: absolute; left: 6%; top: 0; bottom: 0; width: 28.5%; display: flex; flex-direction: column; justify-content: center; gap: 1.4cqw; pointer-events: none; text-align: left; }
+.gm[data-layout='mobile'] .gm-copy { left: 6.5%; right: 6.5%; width: auto; bottom: auto; top: 3.2%; justify-content: flex-start; gap: 2.4cqw; }
+
+/* Eight chapters: only the current one is shown, as "04 / 08 · Digitalisation". */
+.gm-steps { list-style: none; margin: 0 0 .6cqw; padding: 0; display: flex; gap: 1.6cqw; font: 600 max(10px, .95cqw)/1 var(--gm-body); color: #9aa9bd; }
+.gm[data-layout='mobile'] .gm-steps { font-size: max(10px, 2.9cqw); gap: 4cqw; }
+.gm-steps li { display: none; gap: .55em; align-items: baseline; color: var(--gm-gtc); }
+.gm-step-num { font-variant-numeric: tabular-nums; color: #8fa1b8; }
+.gm[data-chapter='0'] [data-step='0'], .gm[data-chapter='1'] [data-step='1'], .gm[data-chapter='2'] [data-step='2'], .gm[data-chapter='3'] [data-step='3'],
+.gm[data-chapter='4'] [data-step='4'], .gm[data-chapter='5'] [data-step='5'], .gm[data-chapter='6'] [data-step='6'], .gm[data-chapter='7'] [data-step='7'] { display: flex; }
+
+.gm .gm-logo { display: block; align-self: flex-start; width: auto; max-width: 60%; height: max(32px, 4cqw); margin-top: .8cqw; }
+.gm[data-layout='mobile'] .gm-logo { position: absolute; right: 0; top: 0; height: max(28px, 7.5cqw); margin: 0; }
+
+.gm-mask { display: grid; overflow: hidden; margin: 0; }
+.gm-mask > span { grid-area: 1 / 1; display: block; will-change: transform; }
+.gm .gm-title { font: 600 max(17px, 2.25cqw)/1.18 var(--gm-display); letter-spacing: -0.015em; color: var(--gm-ink); text-wrap: balance; padding-bottom: .12em; }
+.gm .gm-body { font: 400 max(12px, 1.12cqw)/1.55 var(--gm-body); color: var(--gm-muted); max-width: 30ch; }
+.gm[data-layout='mobile'] .gm-title { font-size: max(18px, 6.1cqw); }
+/* On phones the drawing needs the full height: the chapter sentence moves under the stage. */
+.gm[data-layout='mobile'] .gm-body { display: none; }
+.gm .gm-caption { display: none; margin: 0 auto; max-width: 560px; width: 100%; font: 400 14px/1.5 var(--gm-body); color: var(--gm-muted); min-height: 3em; text-align: left; }
+.gm[data-layout='mobile'] .gm-caption { display: block; }
+.gm-caption span { display: none; }
+.gm[data-chapter='0'] [data-cap='0'], .gm[data-chapter='1'] [data-cap='1'], .gm[data-chapter='2'] [data-cap='2'], .gm[data-chapter='3'] [data-cap='3'],
+.gm[data-chapter='4'] [data-cap='4'], .gm[data-chapter='5'] [data-cap='5'], .gm[data-chapter='6'] [data-cap='6'], .gm[data-chapter='7'] [data-cap='7'] { display: inline; }
+
+.gm-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.gm[data-variant='compact'] .gm-controls { width: 100%; max-width: 1120px; margin: 0 auto; }
+.gm[data-layout='mobile'][data-variant='compact'] .gm-controls { max-width: 560px; }
+.gm .gm-btn, .gm .gm-chip { border: 1px solid #cdd9e7; background: var(--gm-surface); color: var(--gm-gtc); border-radius: 999px; padding: 9px 16px; font: 600 13px/1 var(--gm-body); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; }
+.gm .gm-btn-primary { background: var(--gm-gtc); border-color: var(--gm-gtc); color: #fff; }
+.gm .gm-btn:hover, .gm .gm-chip:hover { border-color: var(--gm-gtc); }
+.gm .gm-btn:focus-visible, .gm .gm-chip:focus-visible, .gm .gm-range:focus-visible { outline: 3px solid var(--gm-sky); outline-offset: 2px; }
+.gm-icon-play { width: 0; height: 0; border-left: 8px solid currentColor; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.gm-icon-pause { width: 8px; height: 10px; border-left: 3px solid currentColor; border-right: 3px solid currentColor; }
+.gm .gm-range { flex: 1 1 180px; min-width: 140px; accent-color: var(--gm-gtc); }
+.gm .gm-clock { font: 500 13px/1 var(--gm-body); font-variant-numeric: tabular-nums; color: var(--gm-muted); min-width: 5ch; }
+.gm-chapters { display: flex; gap: 6px; flex-wrap: wrap; }
+.gm .gm-chip { padding: 8px 12px; color: var(--gm-muted); }
